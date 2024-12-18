@@ -89,9 +89,9 @@ class ArithmeticCubitView extends StatelessWidget {
                     final firstNumber = int.parse(_firstNumberController.text);
                     final secondNumber =
                         int.parse(_secondNumberController.text);
-                    // context
-                    //     .read<ArithmeticCubit>()
-                    //     .subtract(firstNumber, secondNumber);
+                    context
+                        .read<ArithmeticCubit>()
+                        .subtract(firstNumber, secondNumber);
                   }
                 },
                 child: const Text('Subtract'),
@@ -103,9 +103,9 @@ class ArithmeticCubitView extends StatelessWidget {
                     final firstNumber = int.parse(_firstNumberController.text);
                     final secondNumber =
                         int.parse(_secondNumberController.text);
-                    // context
-                    //     .read<ArithmeticCubit>()
-                    //     .multiply(firstNumber, secondNumber);
+                    context
+                        .read<ArithmeticCubit>()
+                        .multiply(firstNumber, secondNumber);
                   }
                 },
                 child: const Text('Multiply'),

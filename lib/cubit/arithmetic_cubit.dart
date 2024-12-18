@@ -15,4 +15,3 @@ class ArithmeticCubit extends Cubit<int> {
     emit(firstNumber * secondNumber);
   }
 }
-
