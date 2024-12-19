@@ -54,9 +54,30 @@ class ArithmeticCubitView extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 8),
+              // Align(
+              //   alignment: Alignment.center,
+              //   child: BlocBuilder<ArithmeticCubit, int>(
+              //     builder: (context, state) {
+              //       return Text(
+              //         "Result: $state",
+              //         style: TextStyle(
+              //           fontSize: 20,
+              //           fontWeight: FontWeight.bold,
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
               Align(
                 alignment: Alignment.center,
-                child: BlocBuilder<ArithmeticCubit, int>(
+                child: BlocConsumer<ArithmeticCubit, int>(
+                  listener: (context, state) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Result: $state"),
+                      ),
+                    );
+                  },
                   builder: (context, state) {
                     return Text(
                       "Result: $state",
