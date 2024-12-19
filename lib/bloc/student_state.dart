@@ -1,10 +1,25 @@
 part of 'student_bloc.dart';
 
-sealed class StudentState extends Equatable {
-  const StudentState();
-  
-  @override
-  List<Object> get props => [];
-}
+class StudentBlocState extends Equatable {
+  final List<StudentModel> students;
+  final bool isLoading;
 
-final class StudentInitial extends StudentState {}
+  const StudentBlocState({
+    required this.students,
+    required this.isLoading,
+  });
+
+  factory StudentBlocState.initial() {
+    return StudentBlocState(students: [], isLoading: false);
+  }
+
+  StudentBlocState copyWith({List<StudentModel>? students, bool? isLoading}) {
+    return StudentBlocState(
+      students: students ?? this.students,
+      isLoading: isLoading ?? this.isLoading,
+    );
+  }
+
+  @override
+  List<Object> get props => [students, isLoading];
+}

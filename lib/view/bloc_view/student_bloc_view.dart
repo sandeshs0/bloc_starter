@@ -1,6 +1,6 @@
+import 'package:bloc_test/bloc/student_bloc.dart';
 import 'package:bloc_test/cubit/student_cubit.dart';
 import 'package:bloc_test/model/student_model.dart';
-import 'package:bloc_test/state/student_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -78,30 +78,28 @@ class StudentBlocView extends StatelessWidget {
                       age: int.parse(_ageController.text),
                       address: _addressController.text,
                     );
-                    context.read<StudentCubit>().addStudent(student);
-                    _nameController.clear();
-                    _ageController.clear();
-                    _addressController.clear();
+
+                    // Call student bloc
+                    context.read<StudentBloc>().add(AddStudentEvent(student));
                   }
                 },
                 child: const Text('Submit'),
               ),
               SizedBox(height: 8),
-              BlocBuilder<StudentCubit, StudentState>(
+              BlocBuilder<StudentBloc, StudentBlocState>(
                 builder: (context, state) {
                   if (state.isLoading) {
                     return const CircularProgressIndicator();
-                  } else if (state.lstStudents.isEmpty) {
+                  } else if (state.students.isEmpty) {
                     return const Text('No students added yet');
                   } else {
                     return ListView.builder(
                       shrinkWrap: true,
-                      itemCount: state.lstStudents.length,
+                      itemCount: state.students.length,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          title: Text(state.lstStudents[index].name),
-                          subtitle:
-                              Text(state.lstStudents[index].age.toString()),
+                          title: Text(state.students[index].name),
+                          subtitle: Text(state.students[index].age.toString()),
                           trailing: IconButton(
                             icon: const Icon(Icons.delete),
                             onPressed: () {

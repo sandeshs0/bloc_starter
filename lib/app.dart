@@ -27,7 +27,9 @@ class App extends StatelessWidget {
         BlocProvider(
           create: (context) => serviceLocator<DashboardCubit>(),
         ),
-        BlocProvider(create: (context) => serviceLocator<ArithmeticBloc>()),
+        BlocProvider(
+          create: (context) => serviceLocator<ArithmeticBloc>(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -38,17 +40,15 @@ class App extends StatelessWidget {
   }
 }
 
-
 // Without getit
 
-
-  // BlocProvider(create: (context) => CounterCubit()),
-        // BlocProvider(create: (context) => ArithmeticCubit()),
-        // BlocProvider(create: (context) => StudentCubit()),
-        // BlocProvider(
-        //   create: (context) => DashboardCubit(
-        //     context.read<CounterCubit>(),
-        //     context.read<ArithmeticCubit>(),
-        //     context.read<StudentCubit>(),
-        //   ),
-        // ),
+// BlocProvider(create: (context) => CounterCubit()),
+// BlocProvider(create: (context) => ArithmeticCubit()),
+// BlocProvider(create: (context) => StudentCubit()),
+// BlocProvider(
+//   create: (context) => DashboardCubit(
+//     context.read<CounterCubit>(),
+//     context.read<ArithmeticCubit>(),
+//     context.read<StudentCubit>(),
+//   ),
+// ),
