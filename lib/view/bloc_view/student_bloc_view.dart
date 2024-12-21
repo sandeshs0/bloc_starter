@@ -1,5 +1,4 @@
 import 'package:bloc_test/bloc/student_bloc.dart';
-import 'package:bloc_test/cubit/student_cubit.dart';
 import 'package:bloc_test/model/student_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -80,7 +79,9 @@ class StudentBlocView extends StatelessWidget {
                     );
 
                     // Call student bloc
-                    context.read<StudentBloc>().add(AddStudentEvent(student));
+                    context
+                        .read<StudentBloc>()
+                        .add(AddStudentEvent(student));
                   }
                 },
                 child: const Text('Submit'),
@@ -103,7 +104,9 @@ class StudentBlocView extends StatelessWidget {
                           trailing: IconButton(
                             icon: const Icon(Icons.delete),
                             onPressed: () {
-                              context.read<StudentCubit>().deleteStudent(index);
+                              context
+                                  .read<StudentBloc>()
+                                  .add(DeleteStudentEvent(index));
                             },
                           ),
                         );

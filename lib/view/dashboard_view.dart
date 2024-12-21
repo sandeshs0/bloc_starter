@@ -12,7 +12,7 @@ class DashboardView extends StatelessWidget {
         title: const Text('Dashboard'),
         centerTitle: true,
       ),
-      body: Column(
+      body: Column( 
         children: [
           Flexible(
             child: GridView(

@@ -29,7 +29,10 @@ class StudentBloc extends Bloc<StudentEvent, StudentBlocState> {
       await Future.delayed(const Duration(seconds: 1));
       final List<StudentModel> updatedStudents = List.from(state.students)
         ..removeAt(event.index);
-      emit(state.copyWith(students: updatedStudents));
+      emit(state.copyWith(
+        students: updatedStudents,
+        isLoading: false,
+      ));
     });
   }
 }
