@@ -12,7 +12,7 @@ class DashboardView extends StatelessWidget {
         title: const Text('Dashboard'),
         centerTitle: true,
       ),
-      body: Column( 
+      body: Column(
         children: [
           Flexible(
             child: GridView(
@@ -26,7 +26,9 @@ class DashboardView extends StatelessWidget {
                 Card(
                   child: InkWell(
                     onTap: () {
-                      context.read<DashboardCubit>().openCounterView(context);
+                      context
+                          .read<DashboardCubit>()
+                          .openCounterViewWithNavigator();
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +44,7 @@ class DashboardView extends StatelessWidget {
                     onTap: () {
                       context
                           .read<DashboardCubit>()
-                          .openArithmeticView(context);
+                          .openArithmeticBlocViewWithNavigator();
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +58,9 @@ class DashboardView extends StatelessWidget {
                 Card(
                   child: InkWell(
                     onTap: () {
-                      context.read<DashboardCubit>().openStudenView(context);
+                      context
+                          .read<DashboardCubit>()
+                          .openStudenViewWithNavigator();
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +76,7 @@ class DashboardView extends StatelessWidget {
                     onTap: () {
                       context
                           .read<DashboardCubit>()
-                          .openArithmeticBlocView(context);
+                          .openArithmeticBlocViewWithNavigator();
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +92,7 @@ class DashboardView extends StatelessWidget {
                     onTap: () {
                       context
                           .read<DashboardCubit>()
-                          .openStudentBlocView(context);
+                          .openStudentBlocViewWithNavigator();
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
