@@ -104,6 +104,48 @@ class DashboardView extends StatelessWidget {
               ),
             ),
           ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openDollarRupees(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.plus_one, size: 48),
+                  Text('Counter Bloc'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openDollarRupees(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.conveyor_belt, size: 48),
+                  Text('Dollar Rupees'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openDollarRupees(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.conveyor_belt, size: 48),
+                  Text('Dollar Rupees'),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
